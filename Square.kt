@@ -1,8 +1,5 @@
-fun calculateSquare(num : Int) : Int {
-    fun square() : Int {
-        return num*num
-    }
-    return square()
+fun calculateSquare(num : Int, square : (Int) -> Int) : Int {
+    return square(num)
 }
 
 fun main() {
@@ -11,6 +8,10 @@ fun main() {
     if(num == null) {
         println("No number entered")
     } else {
-        println(calculateSquare(num))
+        val square : Int = calculateSquare(num, { a ->
+            println("The square is: ")
+            a*a
+        })
+        println(square)
     }
 }
